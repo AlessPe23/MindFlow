@@ -52,7 +52,7 @@ body {
   align-items: center;
   min-height: 100vh;
   transition: background 0.4s ease, color 0.3s ease;
-  background-image: url("https://i.imgur.com/4mVQ1MZ.png");
+  /* background-image: url("https://i.imgur.com/4mVQ1MZ.png"); */
   background-size: cover;
   background-position: center;
 }
