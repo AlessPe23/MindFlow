@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindFlow</title>
+
+    <link rel="stylesheet" href="../CSS/Index.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <button id="darkToggle" onclick="toggleDarkMode()">🌙</button>
+
+    <div id="auth" class="container">
+        <h1>MindFlow</h1>
+        <h3>Iniciar Sesión</h3>
+
+        <input id="loginEmail" type="email" placeholder="Correo" />
+        <input id="loginPass" type="password" placeholder="Contraseña" />
+        <button onclick="login()">Entrar</button>
+
+        <p class="link" onclick="showRegister()">Crear cuenta</p>
+    </div>
+
+    <div id="register" class="container hidden">
+        <h1>MindFlow</h1>
+        <h3>Registro</h3>
+
+        <input id="regName" type="text" placeholder="Nombre completo" />
+        <input id="regEmail" type="email" placeholder="Correo" />
+        <input id="regPass" type="password" placeholder="Contraseña" />
+        <button onclick="register()">Crear cuenta</button>
+
+        <p class="link" onclick="showLogin()">Volver a Login</p>
+    </div>
+
+    <div id="dashboard" class="container hidden">
+        <h2>Bienvenido a MindFlow</h2>
+
+        <p id="userName"></p>
+        <p id="userAlias" class="alias"></p>
+
+        <h3>Laberinto del Éxito</h3>
+
+        <div class="module" onclick="openModule('miedo')">1. Mapeando el Miedo</div>
+        <div class="module" onclick="openModule('valor')">2. El Desafío del Valor</div>
+        <div class="module" onclick="openModule('error')">3. El Arte del Error</div>
+        <div class="module" onclick="openModule('flow')">4. Mi Sala de Flujo</div>
+        <div class="module" onclick="openModule('brujula')">5. Brújula de Valores</div>
+        <div class="module" onclick="openModule('fusion')">6. Rescatador de Fusión</div>
+        <div class="module" onclick="openModule('mini')">7. Mini-Misiones</div>
+
+        <button onclick="logout()" class="logout">Cerrar Sesión</button>
+    </div>
+
+    <div id="mod_miedo" class="container hidden">
+        <h2>Mapeando el Miedo</h2>
+        <textarea id="miedoText" placeholder="Escribe tu pensamiento ansioso..."></textarea>
+
+        <select id="miedoTipo">
+            <option value="juicio">Miedo al juicio</option>
+            <option value="imperfeccion">Miedo a la imperfección</option>
+            <option value="fracaso">Miedo al fracaso</option>
+        </select>
+
+        <button onclick="guardarMiedo()">Guardar</button>
+        <button onclick="backDashboard()" class="back">Volver</button>
+    </div>
+
+    <div id="mod_valor" class="container hidden">
+        <h2>El Desafío del Valor</h2>
+
+        <input id="valorTarea" placeholder="Mini misión" />
+        <input id="valorValor" placeholder="Valor que la guía" />
+
+        <button onclick="guardarValor()">Guardar</button>
+        <button onclick="backDashboard()" class="back">Volver</button>
+    </div>
+
+    <div id="mod_error" class="container hidden">
+        <h2>El Arte del Error</h2>
+
+        <textarea id="errorHecho" placeholder="Describe qué pasó..."></textarea>
+        <textarea id="errorEmocion" placeholder="¿Qué sentiste?"></textarea>
+        <textarea id="errorCreencia" placeholder="Nueva creencia alternativa"></textarea>
+
+        <button onclick="guardarError()">Guardar</button>
+        <button onclick="backDashboard()" class="back">Volver</button>
+    </div>
+
+    <div id="mod_flow" class="container hidden">
+        <h2>Mi Sala de Flujo</h2>
+
+        <div id="timer" class="timer">25:00</div>
+        <button onclick="startPomodoro()">Iniciar</button>
+        <button onclick="stopPomodoro()" class="back">Detener</button>
+        <button onclick="backDashboard()" class="back">Volver</button>
+    </div>
+
+    <div id="mod_brujula" class="container hidden">
+        <h2>Brújula de Valores</h2>
+
+        <textarea id="valorLista" placeholder="Escribe tus valores personales..."></textarea>
+
+        <button onclick="guardarBrujula()">Guardar</button>
+        <button onclick="backDashboard()" class="back">Volver</button>
+    </div>
+
+    <div id="mod_fusion" class="container hidden">
+        <h2>Rescatador de Fusión</h2>
+
+        <textarea id="fusionPensamiento" placeholder="¿Qué pensamiento te atrapó?"></textarea>
+
+        <select id="fusionTecnica">
+            <option>Respira 5-2-5</option>
+            <option>Etiqueta el pensamiento</option>
+            <option>Describe sin juzgar</option>
+        </select>
+
+        <button onclick="guardarFusion()">Guardar</button>
+        <button onclick="backDashboard()" class="back">Volver</button>
+    </div>
+
+    <div id="mod_mini" class="container hidden">
+        <h2>Mini-Misiones</h2>
+
+        <input id="miniTarea" placeholder="Nueva mini-misión..." />
+        <button onclick="guardarMini()">Agregar</button>
+
+        <ul id="miniList"></ul>
+
+        <button onclick="backDashboard()" class="back">Volver</button>
+    </div>
+
+    <script src="../JS/Index.js"></script>
+</body>
+
+</html>
